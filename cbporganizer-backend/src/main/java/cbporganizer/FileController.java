@@ -1,5 +1,6 @@
 package cbporganizer;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import cbporganizer.service.FilesStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/file")
 public class FileController {
 
@@ -36,10 +38,11 @@ public class FileController {
     }
 
     private String getUserIdFromSession(HttpSession session) {
-        String userId = (String) session.getAttribute("userId");
-        if (userId == null) {
-            throw HttpClientErrorException.Unauthorized.create(HttpStatus.UNAUTHORIZED, "Unauthorized", HttpHeaders.EMPTY, null, null);
-        }
-        return userId;
+//        String userId = (String) session.getAttribute("userId");
+//        if (userId == null) {
+//            throw HttpClientErrorException.Unauthorized.create(HttpStatus.UNAUTHORIZED, "Unauthorized", HttpHeaders.EMPTY, null, null);
+//        }
+//        return userId;
+        return "user-docker";
     }
 }

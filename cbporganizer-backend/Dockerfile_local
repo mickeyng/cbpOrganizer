@@ -1,0 +1,12 @@
+FROM tomcat:8.0.51-jre8-alpine
+
+# Copy the WAR file to the tomcat webapps directory
+COPY target/*.war /usr/local/tomcat/webapps/cbporganizer.war
+
+ENV JAVA_OPTS="-Ddebug"
+
+# Expose the default Tomcat port
+EXPOSE 8080
+
+# Start the Tomcat server
+CMD ["catalina.sh", "run"]
